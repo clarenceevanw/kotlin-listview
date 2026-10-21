@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -31,6 +32,15 @@ class MainActivity : AppCompatActivity() {
 
         val _lv1 = findViewById<ListView>(R.id.lv1)
         _lv1.adapter = lvAdapter
+
+        _lv1.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(
+                this,
+                data[position],
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
 
         val _btnTambah = findViewById<Button>(R.id.btnTambah)
         _btnTambah.setOnClickListener {
